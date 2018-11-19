@@ -1,0 +1,55 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1rP1dRg2ynX0ZcW6uEEct5FQhL6a7u58_1HOsR2MidUc/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    alert('Say OK if you believe in magic')
+    var html = "<tr>";
+
+  // double for-loops to do rows, cells in a table
+	for ( i = 0; i < data.length; i++ ) {
+			for ( prop in data[i] ) {
+					html += "<td>" + data[i][prop] + "</td>";
+    	}
+			html += "</tr><tr>";
+	}
+	document.getElementById("internship").innerHTML = html;
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+</script>
+
+<html>
+<head> <link rel="stylesheet" href="Personal Sheet DB MK1.css"></head>
+<body>
+<table id="internship">
+  <tbody>
+    <colgroup>
+        <col style="width: 207px">
+        <col style="width: 115px">
+        <col style="width: 620px">
+    </colgroup>
+<!--
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Due Date</th>
+    </tr>
+    <tr>
+      <th>Stuff</th>
+      <th>to fill</th>
+      <th>hi</th>
+    </tr>
+-->
+
+  </tbody>
+</table>
+</body>
+
+</html>
