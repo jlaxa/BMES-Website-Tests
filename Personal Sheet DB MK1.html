@@ -11,17 +11,25 @@
   function showInfo(data, tabletop) {
     alert('Say OK if you believe in magic')
     var html = "<tr>";
+    console.log(data);
 
   // double for-loops to do rows, cells in a table
 	for ( i = 0; i < data.length; i++ ) {
 			for ( prop in data[i] ) {
-					html += "<td>" + data[i][prop] + "</td>";
+        if(prop == "Link") {
+          html += "<td><a href='" + data[i][prop] + "'>See More</a></td>";
+
+        }
+        else {
+          html += "<td>" + data[i][prop] + "</td>";
+          console.log(data[i]);
+        }
+        
     	}
 			html += "</tr><tr>";
 	}
 	document.getElementById("internship").innerHTML = html;
   }
-
   window.addEventListener('DOMContentLoaded', init)
 </script>
 
